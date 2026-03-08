@@ -22,9 +22,9 @@ public class PlayerLook : MonoBehaviour
 
     private void OnLook(InputValue input)
     {
-        Vector2 inputVec = input.Get<Vector2>();
-        mouseX = inputVec.x;
-        mouseY = inputVec.y;
+        Vector2 inputVector = input.Get<Vector2>();
+        mouseX = inputVector.x;
+        mouseY = inputVector.y;
     }
 
     // Update is called once per frame

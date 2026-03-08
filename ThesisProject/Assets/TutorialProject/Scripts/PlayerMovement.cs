@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody characterRB;
     [SerializeField] private float movementSpeed = 5f;
-    [SerializeField] private ParticleSystem dustParticles;
+    [SerializeField] private ParticleSystem dusticles;
 
     [SerializeField] private float sprint = 2f;
 
@@ -23,9 +23,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMovement(InputValue input)
     {
-        Vector2 inputVec = input.Get<Vector2>();
+        Vector2 inputVector = input.Get<Vector2>();
 
-        movementInput = new Vector3(inputVec.x, 0, inputVec.y);
+        movementInput = new Vector3(inputVector.x, 0, inputVector.y);
     }
 
     private void OnMovementStop(InputValue input)
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         movementVector = Vector3.zero;
     }
 
-    private void OnSprint(InputValue input)
+    private void Sprint(InputValue input)
     {
         isSprinting = input.isPressed;
     }
@@ -64,9 +64,9 @@ public class PlayerMovement : MonoBehaviour
             characterRB.velocity = movementVector * Time.fixedDeltaTime * currentSpeed;
 
 
-            if (!dustParticles.isPlaying)
+            if (!dusticles.isPlaying)
             {
-                dustParticles.Play();
+                dusticles.Play();
             }
         }
         else
@@ -74,9 +74,9 @@ public class PlayerMovement : MonoBehaviour
            
             characterRB.velocity = Vector3.zero;
 
-            if (dustParticles.isPlaying)
+            if (dusticles.isPlaying)
             {
-                dustParticles.Stop();
+                dusticles.Stop();
             }
         }
     }
