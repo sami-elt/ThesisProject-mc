@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody characterRB;
-    [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private float movementSpeed = 300f;
     [SerializeField] private ParticleSystem dusticles;
 
     [SerializeField] private float sprint = 2f;
@@ -34,13 +34,13 @@ public class PlayerMovement : MonoBehaviour
         movementVector = Vector3.zero;
     }
 
-    private void Sprint(InputValue input)
+    private void OnSprint(InputValue input)
     {
         isSprinting = input.isPressed;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         ApplyMovement();    
     }
